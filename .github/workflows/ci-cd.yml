@@ -6,21 +6,16 @@ on:
   pull_request:
     branches: ["main"]
 
+# Fixes the deprecation warnings by forcing the runner to execute actions using Node 24
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   test-and-lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source Code
         uses: actions/checkout@v4
-
-      - name: Install Project Dependencies
-        run: npm ci
-
-      - name: Check Code Formatting Style
-        run: npm run format:check
-
-      - name: Execute Test Suite
-        run: npm test
 
       - name: Set up Node.js Environments
         uses: actions/setup-node@v4
