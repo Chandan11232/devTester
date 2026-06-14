@@ -4,9 +4,14 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "echo 'Running unit tests... Passed!'"
+    "test": "echo 'Running unit tests... Passed!'",
+    "format:fix": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "prettier": "^3.8.4"
   }
 }
